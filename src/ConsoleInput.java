@@ -12,7 +12,7 @@ public class ConsoleInput {
             validator.checkValidation(str);
         } catch (ValidationException | ArithmeticException e) {
             e.printStackTrace();
-            startReading();
+            return startReading();
         }
         return str;
     }

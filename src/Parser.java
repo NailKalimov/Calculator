@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.Stack;
 import java.util.regex.Pattern;
 
 public class Parser {
@@ -25,20 +26,20 @@ public class Parser {
 
     LinkedList<String> rpnConstructor(String s) {
         String[] str = s.split("(?=[/*+-])|(?<=[/*+-])");
-        LinkedList<String> st = new LinkedList<>();
+        Stack<String> st = new Stack<>();
         LinkedList<String> out = new LinkedList<>();
         for (String value : str) {
             if (isDecimal(value)) {
                 out.add(value);
             } else if (isBinaryOperator(value)) {
-                if (!st.isEmpty() && getPriority(st.getLast()) >= getPriority(value)) {
-                    out.add(st.removeLast());
+                if (!st.isEmpty() && getPriority(st.peek()) >= getPriority(value)) {
+                    out.add(st.pop());
                 }
                 st.add(value);
             }
         }
         while (!st.isEmpty()) {
-            out.add(st.removeLast());
+            out.add(st.pop());
         }
         return out;
     }
