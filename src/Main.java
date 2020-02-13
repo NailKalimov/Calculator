@@ -3,6 +3,6 @@ public class Main {
         ConsoleInput consoleInput = new ConsoleInput();
         Parser parser = new Parser();
         Calculator calculator = new Calculator();
-        System.out.println(calculator.getResult(parser.rpnConstructor(consoleInput.startReading())));
+        System.out.println("Ответ: "+calculator.getResult(parser.rpnConstructor(consoleInput.startReading())));
     }
 }
