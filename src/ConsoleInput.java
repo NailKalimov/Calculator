@@ -6,7 +6,7 @@ public class ConsoleInput {
     Validator validator = new Validator();
 
     String startReading() {
-        System.out.println("Введите выражение для вычисления\n-> ");
+        System.out.println("Введите выражение для вычисления\n->");
         String str = scanner.nextLine();
         try {
             validator.checkValidation(str);
